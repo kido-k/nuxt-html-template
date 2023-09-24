@@ -1,9 +1,13 @@
 <script setup lang="ts">
-const canvasWidth = '800'
-const canvasHeight = '600'
+const { getCanvas } = useCanvas()
+
 const canvas = ref()
 const context = ref()
 const isDrawable = ref(false)
+
+const canvasSize = computed(() => {
+  return getCanvas()
+})
 
 onMounted(() => {
   canvas.value = document.querySelector('#canvas')
@@ -36,11 +40,15 @@ const onDragEnd = () => {
 </script>
 
 <template>
-  <v-card class="design-layout">
+  <v-card
+    class="design-layout"
+    :style="{ width: `${canvasSize.width}px`, height: `${canvasSize.height}` }"
+  >
+    {{ canvasSize }}
     <canvas
       id="canvas"
-      :width="canvasWidth"
-      :height="canvasHeight"
+      :width="String(canvasSize.width)"
+      :height="String(canvasSize.height)"
       @mousedown="onDragStart"
       @mousemove="drawLine"
       @mouseup="onDragEnd"
@@ -51,8 +59,6 @@ const onDragEnd = () => {
 
 <style lang="scss" scoped>
 .design-layout {
-  width: 100%;
-  height: 100%;
   padding: 12px 24px;
 }
 </style>

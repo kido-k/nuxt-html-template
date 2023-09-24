@@ -1,5 +1,3 @@
-// import {fileURLToPath} from "node:url";
-
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   typescript: {
@@ -42,7 +40,4 @@ export default defineNuxtConfig({
       'composables/firebase',
     ]
   },
-  // alias: {
-  //   "@types": fileURLToPath(new URL("./assets/types", import.meta.url)),
-  // },
 })
