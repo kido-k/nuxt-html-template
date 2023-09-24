@@ -65,7 +65,7 @@ function changeCanvasSize(width: number, height: number) {
   &__controller {
     justify-content: center;
     align-items: center;
-    margin: 8px 0 0 0;
+    margin: 8px 0 0 90px;
   }
   &__logo {
     font-size: 24px;
