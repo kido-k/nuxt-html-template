@@ -9,15 +9,16 @@ const layoutSideMenuItems: { name: string; icon: string }[] = [
 <template>
   <div model-value class="layouts-side-menu">
     <v-card class="layouts-side-menu__card">
-      <v-list :lines="false" nav>
-        <v-list-item
+      <v-list>
+        <v-btn
           v-for="(item, i) in layoutSideMenuItems"
           :key="i"
-          :value="item"
+          icon
+          flat
           class="layouts-side-menu__button"
         >
           <v-icon :icon="item.icon" />
-        </v-list-item>
+        </v-btn>
       </v-list>
     </v-card>
   </div>
@@ -36,7 +37,7 @@ const layoutSideMenuItems: { name: string; icon: string }[] = [
     width: 56px;
   }
   &__button {
-    margin: 16px 0;
+    margin: 4px 0;
   }
 }
 </style>

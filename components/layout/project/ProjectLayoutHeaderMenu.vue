@@ -19,7 +19,7 @@ function transitionHome() {
         HTML Editor
       </p>
       <p class="project-layout-header__project-name">
-        {{ currentProject?.name }}
+        {{ currentProject?.projectName }}
       </p>
     </v-layout>
 

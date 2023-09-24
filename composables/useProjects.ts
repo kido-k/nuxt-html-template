@@ -3,6 +3,7 @@ export const useProjects = () => {
   const projects = useState<Array<Project>>('projects', () => [])
   const currentProject = useState<Project>('currentProject', () => {
     return {
+      projectId: '',
       projectName: '',
       createdAt: '',
     }
@@ -12,6 +13,7 @@ export const useProjects = () => {
     const { getFieldData }: any = useFirestore()
     projects.value = await getFieldData('editor-project')
     projects.value.unshift({
+      projectId: '',
       projectName: '',
       createdAt: '',
     })
@@ -23,7 +25,7 @@ export const useProjects = () => {
       {
         collectionKey: 'editor-project',
         collectionData: {
-          name: projectName,
+          projectName,
         },
       },
       true

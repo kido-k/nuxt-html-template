@@ -1,4 +1,5 @@
 type Project = {
+  projectId: string,
   projectName: string,
   createdAt: string,
 }

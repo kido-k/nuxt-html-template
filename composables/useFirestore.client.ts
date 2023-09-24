@@ -66,10 +66,12 @@ export const useFirestore = () => {
 		const querySnapshot = await getDocs(_query);
 		const _docData: object[] = []
 		querySnapshot.forEach((doc) => {
-			_docData.push({
-			projectId: doc.id,
-			setting: doc.data()
-			});
+			const project: Project =  {
+				projectId: doc.id,
+				projectName: doc.data()?.projectName,
+				createdAt: doc.data()?.createdAt
+			}
+			_docData.push(project);
 		})
 		return _docData
 	}
@@ -81,10 +83,12 @@ export const useFirestore = () => {
 		const querySnapshot = await getDocs(_query);
 		const _docData: object[] = []
 		querySnapshot.forEach((doc) => {
-			_docData.push({
-			projectId: doc.id,
-			setting: doc.data()
-			});
+			const project: Project =  {
+				projectId: doc.id,
+				projectName: doc.data()?.projectName,
+				createdAt: doc.data()?.createdAt
+			}
+			_docData.push(project);
 		})
 		return _docData
 	}

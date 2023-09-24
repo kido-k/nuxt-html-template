@@ -22,8 +22,8 @@ async function deleteProject(projectId: string) {
 <template>
   <v-row v-if="props.projects.length > 0" class="projects">
     <v-col
-      v-for="project in projects"
-      :key="project.projectId"
+      v-for="(project, index) in projects"
+      :key="index"
       cols="12"
       sm="4"
       class="projects__col"
@@ -42,7 +42,7 @@ async function deleteProject(projectId: string) {
           <v-icon>mdi-close</v-icon>
         </v-btn>
         <v-card-title class="projects__col__card__title">
-          {{ project.setting.name }}
+          {{ project?.projectName }}
         </v-card-title>
         <p class="projects__col__card__project-id">
           {{ project.projectId }}
